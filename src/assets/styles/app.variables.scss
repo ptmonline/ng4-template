@@ -1,0 +1,92 @@
+// 1. App Shared Color Variables
+// --------------------------------------------------
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The 'primary' color is the only required color in the map.
+// Both iOS and MD colors can be further customized if colors
+// are different per mode.
+
+/// @name Mobile-colors
+/// Listado de colores especificos para el contexto
+/// de la App mobile
+
+$mobile-colors: (
+  toolbar: #008fd8,
+  lighten: #bbbbbb,
+  favorite: #69bb7b,
+  secondary:  #32db64, 
+  grey: #a2a2a2,
+  darkgrey: #595968, 
+  seablue: #1377b3,
+  bgAnim: #00c6f5,
+  notify: #00bcf3, 
+  evolante: #00c6f5,
+  splash: #00cbff,
+  light-blue: (
+    color: #45bef6,  
+    ionic: true
+  ),
+  lightgrey: (
+    color: #bababa,
+    ionic: true
+  ), 
+  bluesky: (  
+    color: #4dc3ff,
+    ionic: true  
+  )
+);
+
+// @name Merge de mapas
+// Mezcla los mapas common-colors y mobile-colors
+// Estos serán los usados en toda al app.
+// Si un color tipo primario ha de ser diferente en la app mobile
+// se deberá cambiar en el $mobile-colores con el mismo nombre y
+// este se sobreescribirá en el mapa resultante del merge.
+
+// $app-colors --> Merge de mapas que a su vez puede contenter otros mapas
+// $app-colors: map-merge( $common-colors, $mobile-colors );
+
+// $map-of-colors --> Es el mapa que contendrá todos los colores de la app
+$map-of-colors: ();
+// $map-of-colors: create-map-colors($map-of-colors, $app-colors );
+
+// $colors --> Es el mapa de colores que usará ionic
+// $colors: create-map-colors($colors, $app-colors, ionic);
+
+
+
+// 2. Font sizes
+// --------------------------------------------------
+// Mapa de tamaños de fuente en px en base a lo que nos muestra
+// el diseño. El valor en rems será convertido via la función rem,
+// o los mixins que hagan uso del mapa, de esta forma nos aseguramos
+// que el valor será siempre relativo al definido en el HTML y que
+// corresponde con el diseño en versión NO Retina.
+
+$font-sizes: (
+  'xs': 15px,
+  'sm': 18px,
+  'md': 20px,
+  'lg': 27px,
+  'xl': 32px,
+  'xxl': 40px,
+  'big': 45px,
+);
+
+// 3. Breakpoints
+// --------------------------------------------------
+// Mapa de breakpoints para el control de las media queries
+
+$breakpoints: (
+  xxs: 320px,
+  xs: 360px,
+  sm: 400px,
+  md: 768px,
+  lands: 1024px
+);
+
+$z-indexes: (
+  'loader': 99999
+);
+

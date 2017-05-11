@@ -8,7 +8,7 @@ import { HomeService } from '../services/home.service';
   providers: [HomeService]
 })
 export class HomeComponent {
-  title:string = 'Gnomes';
+  title:string = "Gnomes's Village";
   items: any;
   constructor(private homeHttp: HomeService) { }
 

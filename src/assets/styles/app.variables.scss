@@ -37,25 +37,6 @@ $mobile-colors: (
   )
 );
 
-// @name Merge de mapas
-// Mezcla los mapas common-colors y mobile-colors
-// Estos serán los usados en toda al app.
-// Si un color tipo primario ha de ser diferente en la app mobile
-// se deberá cambiar en el $mobile-colores con el mismo nombre y
-// este se sobreescribirá en el mapa resultante del merge.
-
-// $app-colors --> Merge de mapas que a su vez puede contenter otros mapas
-// $app-colors: map-merge( $common-colors, $mobile-colors );
-
-// $map-of-colors --> Es el mapa que contendrá todos los colores de la app
-$map-of-colors: ();
-// $map-of-colors: create-map-colors($map-of-colors, $app-colors );
-
-// $colors --> Es el mapa de colores que usará ionic
-// $colors: create-map-colors($colors, $app-colors, ionic);
-
-
-
 // 2. Font sizes
 // --------------------------------------------------
 // Mapa de tamaños de fuente en px en base a lo que nos muestra
@@ -89,4 +70,19 @@ $breakpoints: (
 $z-indexes: (
   'loader': 99999
 );
+
+@function rem($args, $base: 10px) {
+  $list-rems: null;
+  
+  @each $val in $args {
+    $rem-val: $val / $base;
+    @if(is-number($rem-val)) {
+      $list-rems: append($list-rems, #{$rem-val}rem);  
+    } @else {
+      @error "$args should be a list of number types";
+    }
+    
+  }
+  @return $list-rems;
+}
 

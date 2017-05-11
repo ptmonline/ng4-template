@@ -734,8 +734,20 @@
 
 h1 {
   color: palevioletred;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center; }
+
+h2 {
+  color: royalblue;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center; }
 
 .routerlinkdirect > span {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem; }
+  font-size: 1rem;
+  text-align: center; }
+
+.gnome_picture {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 10rem; }

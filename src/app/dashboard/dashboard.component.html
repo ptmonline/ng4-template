@@ -1,7 +1,6 @@
 <div class="container-flex">
     <form (ngSubmit)="onSubmit()" [formGroup]="CBPATTCForm">
         <div class="flex-panel">
-            <!--<label for="busy">How busy is your gnome</label>-->
             <select formControlName="professions_length" id="0" [(ngModel)]="professions_length" class="form-control">
                 <option value="" disabled [selected]='1'>How busy is your gnome ?</option>
                 <option value="1">1</option>
@@ -13,7 +12,6 @@
             </select>
         </div>
         <div class="flex-panel">
-            <!--<label for="old">How old is your gnome? Older than: </label>-->
             <select formControlName="old" id="1" [(ngModel)]="old" class="form-control">
                 <option value="" disabled [selected]='1'>How old is your gnome? Older than: </option>
                 <option value="1" >Little</option>
@@ -24,7 +22,6 @@
             </select>
         </div>
         <div class="flex-panel">
-            <!--<label for="old">Color Hair?</label>-->
             <select formControlName="color_hair" id="2" [(ngModel)]="color_hair" class="form-control">
                 <option value="" disabled [selected]='1'>Color Hair?</option>
                 <option value="Red" >Red</option>
@@ -34,7 +31,6 @@
             </select>
         </div>
         <div class="flex-panel">
-            <!--<label for="old">How large is your gnome?</label>-->
             <select formControlName="weight" id="3" [(ngModel)]="weight" class="form-control">
                 <option value="" disabled [selected]='1'>How large is your gnome?</option>
                 <option value="0">Heavy</option>

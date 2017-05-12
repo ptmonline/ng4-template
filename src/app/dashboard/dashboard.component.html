@@ -1,9 +1,10 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="CBPATTCForm">
-    <div class="row">
-        <div class="col-md-3"><label for="busy">How busy is your gnome</label></div>
-        <div class="col-md-2">
-            <select formControlName="professions_length" id="0" [(ngModel)]="professions_length">
-                <option value="1" [selected]='1'>1</option>
+<div class="container-flex">
+    <form (ngSubmit)="onSubmit()" [formGroup]="CBPATTCForm">
+        <div class="flex-panel">
+            <!--<label for="busy">How busy is your gnome</label>-->
+            <select formControlName="professions_length" id="0" [(ngModel)]="professions_length" class="form-control">
+                <option value="" disabled [selected]='1'>How busy is your gnome ?</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -11,58 +12,52 @@
                 <option value="6">6</option>
             </select>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3"><label for="old">How old is your gnome? Older than: </label></div>
-        <div class="col-md-2">
-            <select formControlName="old" id="0" [(ngModel)]="old">
-                <option value="1"  selected>Little</option>
+        <div class="flex-panel">
+            <!--<label for="old">How old is your gnome? Older than: </label>-->
+            <select formControlName="old" id="1" [(ngModel)]="old" class="form-control">
+                <option value="" disabled [selected]='1'>How old is your gnome? Older than: </option>
+                <option value="1" >Little</option>
                 <option value="10">Young</option>
                 <option value="30">Old</option>
                 <option value="50">Very Old</option>
                 <option value="100">Super Old</option>
             </select>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3"><label for="old">Color Hair?</label></div>
-        <div class="col-md-2">
-            <select formControlName="color_hair" id="0" [(ngModel)]="color_hair">
-                <option value="Red"  [selected]='Red'>Red</option>
+        <div class="flex-panel">
+            <!--<label for="old">Color Hair?</label>-->
+            <select formControlName="color_hair" id="2" [(ngModel)]="color_hair" class="form-control">
+                <option value="" disabled [selected]='1'>Color Hair?</option>
+                <option value="Red" >Red</option>
                 <option value="Pink">Pink</option>
                 <option value="Gray">Gray</option>
                 <option value="Green">Green</option>
             </select>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3"><label for="old">How large is your gnome?</label></div>
-        <div class="col-md-2">
-            <select formControlName="weight" id="0" [(ngModel)]="weight">
-                <option value="0"  [selected]='Heavy'>Heavy</option>
-                <option value="20">Very Heavy</option>
-                <option value="30">Super Heavy</option>
+        <div class="flex-panel">
+            <!--<label for="old">How large is your gnome?</label>-->
+            <select formControlName="weight" id="3" [(ngModel)]="weight" class="form-control">
+                <option value="" disabled [selected]='1'>How large is your gnome?</option>
+                <option value="0">Heavy</option>
+                <option value="30">Very Heavy</option>
+                <option value="40">Super Heavy</option>
             </select>
         </div>
-    </div>
-    <div class="row">
-        <div class="cols-md-4"> <button type="submit" class="btn btn-success">Submit</button></div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div class="container-flex" *ngIf="items">
+    <h2>{{title}}</h2>
+
+
+    <div class="flex-panel" *ngFor="let item of items">
+        <!--<div class="col-sm-4">-->
+        <div><img [src]='item.thumbnail' class="gnome_picture" /></div>
+        <div><span>NAME: {{item.name}}</span></div>
+        <div><span>HAIR COLOR: {{item.hair_color}}</span></div>
+        <div><span>HEIGHT: {{item.height}}</span></div>
+        <div><span>WEIGHT: {{item.weight}}</span></div>
+        <div><span>PROFESSIONS: </span></div>
+        <div *ngFor="let prof of item.professions"><span>{{prof}}</span></div>
     </div>
 
-</form>
-<div class="container-fluid" *ngIf="items">
-    <h2>{{title}}</h2>
-    
-        <div class="row">
-            <div class="col-sm-4" *ngFor="let item of items">
-            <!--<div class="col-sm-4">-->
-                <div><img [src]='item.thumbnail' class="gnome_picture"/></div>
-                <div><span>NAME: {{item.name}}</span></div>
-                <div><span>HAIR COLOR: {{item.hair_color}}</span></div>
-                <div><span>HEIGHT: {{item.height}}</span></div>
-                <div><span>WEIGHT: {{item.weight}}</span></div>
-                <div><span>PROFESSIONS: </span></div>
-                <div *ngFor="let prof of item.professions"><span>{{prof}}</span></div>
-            </div>
-    </div>
 </div>

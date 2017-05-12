@@ -21,29 +21,26 @@ export class DashboardComponent {
 
     constructor(public fb: FormBuilder, private homeHttp: HomeService) {
         this.CBPATTCForm = this.fb.group({
-            professions_length: [''],
-            old: [''],
+            professions_length: [1],
+            old: [100],
             color_hair: ['Red'],
             weight: ['']
         });
     }
 
+    ngOnInit(){
+        this.homeHttp.getAllGnomes().then((response) =>{
+            console.log(response)
+        })
+    }
+
 
     onSubmit() {
-        let newgnome: GnomesModel = <GnomesModel>{}
-        console.log(this.professions_length)
-        console.log(this.old)
-        console.log(this.color_hair)
-        console.log(this.weight)
-        console.log('hooray')
         let newgnomes: GnomesModel = <GnomesModel>{};
         newgnomes.hair_color = this.color_hair,
         newgnomes.age = this.old;
         newgnomes.weight = this.weight;
         newgnomes.professions_length = this.professions_length;
-        this.homeHttp.getAllGnomes(newgnomes).then((response) => {
-            console.log(response)
-            this.items = response
-        })
+        this.items = this.homeHttp.getSelectedGnomes(newgnomes);
     }
 }

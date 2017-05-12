@@ -86,3 +86,15 @@ $z-indexes: (
   @return $list-rems;
 }
 
+
+@mixin respond-to( $breakpoint, $type: max ) {
+  @if map-has-key( $breakpoints, $breakpoint ) {
+    @media (#{$type}-width: #{map-get( $breakpoints, $breakpoint )}) {
+      @content;
+    }
+  } @else {
+      @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+

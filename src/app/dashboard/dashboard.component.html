@@ -16,7 +16,7 @@
         <div class="col-md-3"><label for="old">How old is your gnome? Older than: </label></div>
         <div class="col-md-2">
             <select formControlName="old" id="0" [(ngModel)]="old">
-                <option value="1"  [selected]='Little'>Little</option>
+                <option value="1"  selected>Little</option>
                 <option value="10">Young</option>
                 <option value="30">Old</option>
                 <option value="50">Very Old</option>
@@ -64,19 +64,5 @@
                 <div><span>PROFESSIONS: </span></div>
                 <div *ngFor="let prof of item.professions"><span>{{prof}}</span></div>
             </div>
-            <!--<div><img [src]='item.thumbnail' class="gnome_picture"/></div>
-            <div class="col-sm-1"><span>ID: </span></div>
-            <div class="col-sm-1"><span>{{item.id}}</span></div>
-            <div class="col-sm-1"><span>NAME: </span></div>
-            <div class="col-sm-1"><span>{{item.name}}</span></div>
-            <div class="col-sm-1"><span>HAIR COLOR: </span></div>
-            <div class="col-sm-1"><span>{{item.hair_color}}</span></div>
-            <div class="col-sm-1"><span>HEIGHT: </span></div>
-            <div class="col-sm-1"><span>{{item.height}}</span></div>
-            <div class="col-sm-1"><span>WEIGHT: </span></div>
-            <div class="col-sm-1"><span>{{item.weight}}</span></div>
-            <div class="col-sm-1"><span>PROFESSIONS: </span></div>
-            <div class="col-sm-1"><span>{{item.professions.length}}</span></div>-->
-        <!--</div>-->
     </div>
 </div>

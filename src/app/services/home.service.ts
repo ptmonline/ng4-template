@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class HomeService {
     public allGnomes: any;
     public gnomesProfessions: any;
-    private theurl: any = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
+    private theurl: string = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
 
     constructor(private http: Http) { }
     getAllGnomes(inputgnome: GnomesModel): Promise<any> {

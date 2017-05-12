@@ -31,7 +31,6 @@ export class DashboardComponent {
 
     onSubmit() {
         let newgnome: GnomesModel = <GnomesModel>{}
-
         console.log(this.professions_length)
         console.log(this.old)
         console.log(this.color_hair)

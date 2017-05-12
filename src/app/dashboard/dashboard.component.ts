@@ -18,19 +18,21 @@ export class DashboardComponent {
     public color_hair: string;
     public CBPATTCForm: FormGroup;
     public items: any;
+    public gnomeprofessions: any;
 
     constructor(public fb: FormBuilder, private homeHttp: HomeService) {
         this.CBPATTCForm = this.fb.group({
             professions_length: [1],
             old: [100],
             color_hair: ['Red'],
-            weight: ['']
+            weight: [''],
+            professions: ['']
         });
     }
 
     ngOnInit(){
         this.homeHttp.getAllGnomes().then((response) =>{
-            console.log(response)
+            this.gnomeprofessions = this.homeHttp.uniq;
         })
     }
 

@@ -57,8 +57,8 @@ export class HomeService {
     getAllGnomes(): Promise<any> {
         console.log('yooopppp')
             return this.http.get(this.theurl).toPromise().then(data => {
-                return this.allGnomes = data.json();
-
+                this.allGnomes = data.json();
+                this.getProfessions();
                 // let gnomesProfessions = [];
 
                 // this.allGnomes.Brastlewark.filter((gnome) => {
@@ -88,7 +88,8 @@ export class HomeService {
         this.allGnomes.Brastlewark.filter((gnome) => {
             gnome.professions.filter((job) => {
                 gnomesProfessions.push(job);
-                this.uniq = gnomesProfessions.filter(this.onlyUnique)
+                return this.uniq = gnomesProfessions.filter(this.onlyUnique)
+                // console.log(this.uniq)
             })
         })
     }

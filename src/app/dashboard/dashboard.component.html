@@ -1,5 +1,5 @@
-<div class="container-flex">
-    <form (ngSubmit)="onSubmit()" [formGroup]="CBPATTCForm">
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="CBPATTCForm" class="container-flex">
         <div class="flex-panel">
             <select formControlName="professions_length" id="0" [(ngModel)]="professions_length" class="form-control">
                 <option value="" disabled [selected]='1'>How busy is your gnome ?</option>
@@ -38,15 +38,21 @@
                 <option value="40">Super Heavy</option>
             </select>
         </div>
+        <div class="flex-panel">
+            <legend for="">Choose profession?</legend>
+            <div class="form-check form-group">
+                <label *ngFor="let job of gnomeprofessions" for="{{job}}" class="form-check-label"><input  type="checkbox" formControlName="professions" value="{{job}}" [(ngModel)]="professions" class="form-check-input" /> {{job}}</label>
+            </div>
+            
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>
+
 <div class="container-flex" *ngIf="items">
     <h2>{{title}}</h2>
 
 
     <div class="flex-panel" *ngFor="let item of items">
-        <!--<div class="col-sm-4">-->
         <div><img [src]='item.thumbnail' class="gnome_picture" /></div>
         <div><span>NAME: {{item.name}}</span></div>
         <div><span>HAIR COLOR: {{item.hair_color}}</span></div>

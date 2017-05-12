@@ -791,6 +791,19 @@ h2 {
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15; }
 
+.form-check {
+  position: relative;
+  display: block;
+  margin-bottom: .5rem; }
+  .form-check-label {
+    padding-left: 1.25rem;
+    margin-bottom: 0;
+    cursor: pointer; }
+  .form-check-input {
+    position: absolute;
+    margin-top: .25rem;
+    margin-left: -1.25rem; }
+
 .btn {
   display: inline-block;
   font-weight: 400;

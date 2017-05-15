@@ -747,10 +747,62 @@ h2 {
   font-size: 1rem;
   text-align: center; }
 
-.gnome_picture {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 10rem; }
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out; }
+  .btn--primary {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8; }
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #ffffff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: .25rem;
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15; }
+
+.form-check {
+  position: relative;
+  display: block;
+  margin-bottom: .5rem;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c; }
+  .form-check__label {
+    padding-left: 1.25rem;
+    margin-bottom: 0;
+    cursor: pointer; }
+  .form-check__input {
+    position: absolute;
+    margin-top: .25rem;
+    margin-left: -1.25rem; }
 
 .container {
   width: 970px;
@@ -771,58 +823,25 @@ h2 {
   .container-flex .flex-panel {
     display: block;
     padding: 2%; }
-
-.form-control {
-  display: block;
-  width: 100%;
-  padding: .5rem .75rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  color: #464a4c;
-  background-color: #fff;
-  background-image: none;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: .25rem;
-  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15; }
-
-.form-check {
-  position: relative;
-  display: block;
-  margin-bottom: .5rem; }
-  .form-check-label {
-    padding-left: 1.25rem;
-    margin-bottom: 0;
-    cursor: pointer; }
-  .form-check-input {
-    position: absolute;
-    margin-top: .25rem;
-    margin-left: -1.25rem; }
-
-.btn {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .5rem 1rem;
-  font-size: 1rem;
-  border-radius: .25rem;
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out; }
-  .btn .btn-primary {
-    color: #fff;
-    background-color: #0275d8;
-    border-color: #0275d8; }
+    .container-flex .flex-panel[center] {
+      text-align: center; }
+    .container-flex .flex-panel[left] {
+      text-align: left; }
+    .container-flex .flex-panel[right] {
+      text-align: right; }
+    .container-flex .flex-panel[center-y] {
+      align-self: center; }
+    .container-flex .flex-panel[small] {
+      width: 50%; }
+      @media (max-width: 768px) {
+        .container-flex .flex-panel[small] {
+          width: 100%; } }
+    .container-flex .flex-panel[medium] {
+      width: 80%; }
+      @media (max-width: 768px) {
+        .container-flex .flex-panel[medium] {
+          width: 100%; } }
+    .container-flex .flex-panel__picture {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 10rem; }

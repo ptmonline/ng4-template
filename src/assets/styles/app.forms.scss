@@ -1,0 +1,49 @@
+// SASS File for Forms
+/////////////////////////////////////
+
+//1-Settings
+////////////////////////////////////
+
+$basic-background: #ffffff;
+$basic-fontstyle: #464a4c;
+
+
+.form-control{
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: $basic-fontstyle;
+    background-color: $basic-background;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15
+}
+
+.form-check{
+    position: relative; 
+    display: block;
+    margin-bottom: .5rem;
+        padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: $basic-fontstyle;
+
+    &__label{
+        padding-left: 1.25rem;
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+    &__input{
+        position: absolute;
+        margin-top: .25rem;
+        margin-left: -1.25rem; 
+    }
+}

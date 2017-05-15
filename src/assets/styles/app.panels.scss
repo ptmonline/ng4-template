@@ -1,0 +1,59 @@
+.container{
+    width: 970px;
+    display:block;
+    padding: 0 rem(15px);
+    margin: auto;
+}
+.container-flex{
+    position: relative;
+	display: flex;
+	flex-flow: row;
+    flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	@include respond-to(md)	{
+		display: block;
+	}
+
+    .flex-panel{
+        display: block;
+        padding: 2%;
+
+        &[center] {
+      		text-align: center;
+		}
+
+		&[left] {
+			text-align: left;
+		}
+
+		&[right] {
+			text-align: right;
+		}
+
+		&[center-y] {
+			align-self: center;
+		}
+
+		&[small] {
+			width: 50%;
+			@include respond-to(md) {
+				width: 100%;
+			}			
+		}
+
+		&[medium] {
+			width: 80%;
+			@include respond-to(md) {
+				width: 100%;
+			}			
+		}
+
+        &__picture{
+            width: rem(100px); 
+            height: rem(100px);
+            border-radius: rem(100px);
+        }
+    }
+}

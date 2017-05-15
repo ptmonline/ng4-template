@@ -15,71 +15,7 @@ h2 {
         text-align: center;
     }
 } 
-.gnome_picture{
-    width: rem(100px); 
-    height: rem(100px);
-    border-radius: rem(100px);
-}
 
-.container{
-    width: 970px;
-    display:block;
-    padding: 0 rem(15px);
-    margin: auto;
-}
-.container-flex{
-    position: relative;
-	display: flex;
-	flex-flow: row;
-    flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-
-	@include respond-to(md)	{
-		display: block;
-	}
-
-    .flex-panel{
-        display: block;
-        padding: 2%;
-    }
-}
-
-.form-control{
-    display: block;
-    width: 100%;
-    padding: .5rem .75rem;
-    font-size: 1rem;
-    line-height: 1.25;
-    color: #464a4c;
-    background-color: #fff;
-    background-image: none;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .25rem;
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15
-}
-
-.form-check{
-    position: relative;
-    display: block;
-    margin-bottom: .5rem;
-
-    &-label{
-        padding-left: 1.25rem;
-        margin-bottom: 0;
-        cursor: pointer;
-    }
-    &-input{
-        position: absolute;
-        margin-top: .25rem;
-        margin-left: -1.25rem; 
-    }
-}
 
 .btn{
     display: inline-block;
@@ -98,7 +34,8 @@ h2 {
     border-radius: .25rem;
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    .btn-primary{
+
+    &--primary{
         color: #fff;
         background-color: #0275d8;
         border-color: #0275d8;

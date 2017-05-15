@@ -2,9 +2,9 @@
 
 Inital _template_ for projects:
 
-*Angular 4
+-Angular 4
 
-*Sass
+-Sass
 
-*BEM
+-BEM
 

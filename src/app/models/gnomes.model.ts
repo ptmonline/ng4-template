@@ -1,8 +1,8 @@
 export interface GnomesModel {
-    "age": number,
+    "age"?: number,
     "id"?: number,
-    "name": string,
-    "hair_color": string,
-    "weight": number,
-    "professions_length": number,
+    "name"?: string,
+    "hair_color"?: string,
+    "weight"?: number,
+    "professions_length"?: number,
 }

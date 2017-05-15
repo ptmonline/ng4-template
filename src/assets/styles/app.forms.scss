@@ -7,6 +7,8 @@
 $basic-background: #ffffff;
 $basic-fontstyle: #464a4c;
 
+$btn-primary: #0275d8;
+
 
 .form-control{
     display: block;
@@ -45,5 +47,30 @@ $basic-fontstyle: #464a4c;
         position: absolute;
         margin-top: .25rem;
         margin-left: -1.25rem; 
+    }
+}
+
+.btn{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    &--primary{
+        color: $basic-background;
+        background-color: $btn-primary;
+        border-color: $btn-primary;
     }
 }

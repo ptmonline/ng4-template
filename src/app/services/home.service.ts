@@ -45,6 +45,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { GnomesModel } from '../models/gnomes.model';
 import 'rxjs/add/operator/toPromise';
+import { StorageApp } from '../helpers/storage.helper';
 
 @Injectable()
 export class HomeService {
@@ -52,27 +53,26 @@ export class HomeService {
     public gnomesProfessions: any;
     public uniq: any;
     private theurl: any = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
+    private static stored_gnomes: string = 'stored_gnomes'
 
     constructor(private http: Http) { }
     getAllGnomes(): Promise<any> {
-        console.log('yooopppp')
+        let storedgnomes = StorageApp.get(HomeService.stored_gnomes);
+        if (storedgnomes != null) {
             return this.http.get(this.theurl).toPromise().then(data => {
                 this.allGnomes = data.json();
+                StorageApp.set(HomeService.stored_gnomes, this.allGnomes, false);
                 this.getProfessions();
-                // let gnomesProfessions = [];
-
-                // this.allGnomes.Brastlewark.filter((gnome) => {
-                //     gnome.professions.filter((job) => {
-                //         gnomesProfessions.push(job);
-                //         this.uniq = gnomesProfessions.filter(this.onlyUnique)
-                //         return this.uniq
-                //     })
-                // })
-
             });
+        } else {
+            this.allGnomes = StorageApp.get(HomeService.stored_gnomes);
+            return this.allGnomes;
+        }
+
     }
 
     getSelectedGnomes(inputgnome: GnomesModel): Promise<any> {
+        console.log(inputgnome)
         let gnomes = this.allGnomes.Brastlewark.filter(gnome => {
             return gnome.age >= inputgnome.age &&
                 gnome.hair_color == inputgnome.hair_color &&
@@ -89,7 +89,6 @@ export class HomeService {
             gnome.professions.filter((job) => {
                 gnomesProfessions.push(job);
                 return this.uniq = gnomesProfessions.filter(this.onlyUnique)
-                // console.log(this.uniq)
             })
         })
     }

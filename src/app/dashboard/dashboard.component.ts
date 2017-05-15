@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GnomesModel } from '../models/gnomes.model';
 import { HomeService } from '../services/home.service';
+import { StorageApp } from '../helpers/storage.helper';
 
 @Component({
     selector: 'dashboard',
     templateUrl: './dashboard.component.html',
-    providers: [HomeService]
+    providers: [HomeService,StorageApp]
 })
 
 export class DashboardComponent {
@@ -31,7 +32,8 @@ export class DashboardComponent {
     }
 
     ngOnInit(){
-        this.homeHttp.getAllGnomes().then((response) =>{
+        StorageApp.set('pollo', 'fuck nope', true)
+        this.homeHttp.getAllGnomes().then(() =>{
             this.gnomeprofessions = this.homeHttp.uniq;
         })
     }
@@ -39,10 +41,10 @@ export class DashboardComponent {
 
     onSubmit() {
         let newgnomes: GnomesModel = <GnomesModel>{};
-        newgnomes.hair_color = this.color_hair,
-        newgnomes.age = this.old;
-        newgnomes.weight = this.weight;
-        newgnomes.professions_length = this.professions_length;
+        newgnomes.hair_color = this.color_hair || null,
+        newgnomes.age = this.old || null;
+        newgnomes.weight = this.weight || null;
+        newgnomes.professions_length = this.professions_length || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
     }
 }

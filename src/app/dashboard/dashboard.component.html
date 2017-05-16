@@ -55,9 +55,6 @@
     </div>
 </div>
 <div class="container-flex" *ngIf="items">
-    <h2>{{title}}</h2>
-
-
     <div class="flex-panel" *ngFor="let item of items">
         <div><img [src]='item.thumbnail' class="flex-panel__picture" /></div>
         <div><span>NAME: {{item.name}}</span></div>

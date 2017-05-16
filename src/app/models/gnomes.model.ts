@@ -4,6 +4,5 @@ export interface GnomesModel {
     "name"?: string;
     "hair_color"?: string;
     "weight"?: number;
-    "professions_length"?: number;
-    "jobs": Array<any>;
+    "professions_length"?: number
 }

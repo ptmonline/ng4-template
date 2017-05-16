@@ -46,7 +46,6 @@ export class DashboardComponent {
         newgnomes.age = this.old || null;
         newgnomes.weight = this.weight || null;
         newgnomes.professions_length = this.professions_length || null;
-        newgnomes.jobs = this.jobSelected || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
         this.bigFile = this.items;
     }

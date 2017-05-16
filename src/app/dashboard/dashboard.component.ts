@@ -22,7 +22,7 @@ export class DashboardComponent {
     public gnomeprofessions: any;
     public jobSelected: GnomesModel[] = [];
     public newArray: any[] = [];
-    public bigFile: any;
+    public bigFile: GnomesModel;
 
     constructor(public fb: FormBuilder, private homeHttp: HomeService) {
         this.GnomesForm = this.fb.group({
@@ -39,7 +39,6 @@ export class DashboardComponent {
         })
     }
 
-
     onSubmit() {
         let newgnomes: GnomesModel = <GnomesModel>{};
         newgnomes.hair_color = this.color_hair || null;
@@ -51,7 +50,6 @@ export class DashboardComponent {
     }
 
     saveJob(job) {
-
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
             this.items = this.bigFile
@@ -65,10 +63,7 @@ export class DashboardComponent {
                 for (let b = 0; b <= this.professions_length - 1; b++) {
                     if (this.items[u].professions[b] == job) {
                         this.newArray.push(this.items[u])
-
                         this.items = this.newArray;
-
-
                     }
                 }
             }

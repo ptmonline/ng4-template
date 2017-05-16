@@ -15,21 +15,25 @@ export class HomeService {
     constructor(private http: Http) { }
     getAllGnomes(): Promise<any> {
         let storedgnomes = StorageApp.get(HomeService.stored_gnomes);
-        if (storedgnomes != null) {
+        if (storedgnomes == null) {
             return this.http.get(this.theurl).toPromise().then(data => {
                 this.allGnomes = data.json();
+                console.log(typeof this.allGnomes)
                 StorageApp.set(HomeService.stored_gnomes, this.allGnomes, false);
                 this.getProfessions();
             });
         } else {
             this.allGnomes = StorageApp.get(HomeService.stored_gnomes);
-            return this.allGnomes;
+            console.log(typeof this.allGnomes)
+            this.getProfessions();
+            return Promise.resolve(this.allGnomes);
         }
 
     }
 
     getSelectedGnomes(inputgnome: GnomesModel): Promise<any> {
         console.log(inputgnome)
+        console.log(typeof this.allGnomes)
         let gnomes = this.allGnomes.Brastlewark.filter(gnome => {
             return gnome.age >= inputgnome.age &&
                 gnome.hair_color == inputgnome.hair_color &&
@@ -40,14 +44,23 @@ export class HomeService {
     }
 
     getProfessions() {
-        let gnomesProfessions = [];
+        let checkjobs = StorageApp.get('jobs');
+        console.log(checkjobs);
+        if (checkjobs != null) {
+            this.uniq = checkjobs;
+            return Promise.resolve(this.uniq)
+        } else {
+            let gnomesProfessions = [];
 
-        this.allGnomes.Brastlewark.filter((gnome) => {
-            gnome.professions.filter((job) => {
-                gnomesProfessions.push(job);
-                return this.uniq = gnomesProfessions.filter(this.onlyUnique)
+            this.allGnomes.Brastlewark.filter((gnome) => {
+                gnome.professions.filter((job) => {
+                    gnomesProfessions.push(job);
+                    this.uniq = gnomesProfessions.filter(this.onlyUnique)
+                    StorageApp.set('jobs', this.uniq)
+                    return this.uniq
+                })
             })
-        })
+        }
     }
 
     onlyUnique(value, index, self) {

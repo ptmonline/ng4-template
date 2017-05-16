@@ -23,11 +23,10 @@ export class DashboardComponent {
 
     constructor(public fb: FormBuilder, private homeHttp: HomeService) {
         this.CBPATTCForm = this.fb.group({
-            professions_length: [1],
-            old: [100],
-            color_hair: ['Red'],
-            weight: [''],
-            professions: ['']
+            professions_length: [''],
+            old: [''],
+            color_hair: [''],
+            weight: ['']
         });
     }
 
@@ -46,5 +45,9 @@ export class DashboardComponent {
         newgnomes.weight = this.weight || null;
         newgnomes.professions_length = this.professions_length || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
+    }
+
+    onChange(job){
+        console.log(job)
     }
 }

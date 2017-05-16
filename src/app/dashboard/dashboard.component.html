@@ -43,9 +43,9 @@
     </div>
     <div class="flex-panel">
         <legend for="">Choose profession?</legend>
-        <div class="form-check form-group">
+        <div class="form-check">
             <label *ngFor="let job of gnomeprofessions" for="{{job}}" class="form-check__label">
-                <input  type="checkbox" formControlName="professions" value="{{job}}" [(ngModel)]="professions" class="form-check__input" /> 
+                <input  type="checkbox" value="{{job}}" (onChange)="onChange($event,job)" class="form-check__input" /> 
                 {{job}}
             </label>
         </div>

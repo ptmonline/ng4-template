@@ -31,7 +31,6 @@ export class DashboardComponent {
     }
 
     ngOnInit(){
-        StorageApp.set('pollo', 'fuck nope', true)
         this.homeHttp.getAllGnomes().then(() =>{
             this.gnomeprofessions = this.homeHttp.uniq;
         })

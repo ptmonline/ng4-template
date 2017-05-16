@@ -7,7 +7,7 @@ import { StorageApp } from '../helpers/storage.helper';
 @Component({
     selector: 'dashboard',
     templateUrl: './dashboard.component.html',
-    providers: [HomeService,StorageApp]
+    providers: [HomeService, StorageApp]
 })
 
 export class DashboardComponent {
@@ -17,21 +17,22 @@ export class DashboardComponent {
     public weight: number;
     public height: number;
     public color_hair: string;
-    public CBPATTCForm: FormGroup;
+    public GnomesForm: FormGroup;
     public items: any;
     public gnomeprofessions: any;
+    public jobSelected: GnomesModel[] = [];
 
     constructor(public fb: FormBuilder, private homeHttp: HomeService) {
-        this.CBPATTCForm = this.fb.group({
-            professions_length: [''],
-            old: [''],
-            color_hair: [''],
-            weight: ['']
+        this.GnomesForm = this.fb.group({
+            professions_length: '',
+            old: '',
+            color_hair: '',
+            weight: ''
         });
     }
 
-    ngOnInit(){
-        this.homeHttp.getAllGnomes().then(() =>{
+    ngOnInit() {
+        this.homeHttp.getAllGnomes().then(() => {
             this.gnomeprofessions = this.homeHttp.uniq;
         })
     }
@@ -39,14 +40,39 @@ export class DashboardComponent {
 
     onSubmit() {
         let newgnomes: GnomesModel = <GnomesModel>{};
-        newgnomes.hair_color = this.color_hair || null,
+        newgnomes.hair_color = this.color_hair || null;
         newgnomes.age = this.old || null;
         newgnomes.weight = this.weight || null;
         newgnomes.professions_length = this.professions_length || null;
+        newgnomes.jobs = this.jobSelected || null;
+        console.log(newgnomes)
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
     }
 
-    onChange(job){
-        console.log(job)
+    refreshPage(newSearch) {
+        this.items = newSearch;
+    }
+
+    saveJob(job) {
+
+        if (!this.jobSelected.length) {
+            this.jobSelected.push(job);
+        } else {
+            let index: number = this.jobSelected.indexOf(job);
+            if (this.jobSelected[index] != null) this.jobSelected.splice(index, 1);
+            else this.jobSelected.push(job);
+        }
+        console.log(this.jobSelected);
+        for (let u = 0; u <= this.items.length - 1; u++) {
+            console.log(this.items[u].professions)
+            for (let b = 0; b <= this.items[u].professions.length; b++) {
+                if (this.items[u].professions[b] == job) {
+                    // this.refreshPage(this.items[u].professions[b])
+                    this.items = this.items[u].professions[b];
+                } else {
+                    console.log('nope')
+                }
+            }
+        }
     }
 }

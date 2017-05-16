@@ -3,6 +3,8 @@ import { Headers, Http, Response } from '@angular/http';
 import { GnomesModel } from '../models/gnomes.model';
 import 'rxjs/add/operator/toPromise';
 import { StorageApp } from '../helpers/storage.helper';
+import * as _ from 'lodash';
+import lodash from 'lodash';
 
 @Injectable()
 export class HomeService {
@@ -35,7 +37,7 @@ export class HomeService {
                 gnome.weight >= inputgnome.weight &&
                 gnome.professions.length == inputgnome.professions_length;
         })
-        return gnomes
+        return gnomes;
     }
 
     getProfessions() {
@@ -58,5 +60,9 @@ export class HomeService {
 
     onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
+    }
+
+    filterByJobs(){
+        
     }
 }

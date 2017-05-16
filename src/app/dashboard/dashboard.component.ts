@@ -63,7 +63,6 @@ export class DashboardComponent {
             console.log(this.items[u].professions)
             for (let b = 0; b <= this.items[u].professions.length; b++) {
                 if (this.items[u].professions[b] == job) {
-                    // this.refreshPage(this.items[u].professions[b])
                     this.items = this.items[u].professions[b];
                 } else {
                     console.log('nope')

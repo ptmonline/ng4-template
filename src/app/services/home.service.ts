@@ -26,7 +26,6 @@ export class HomeService {
             this.getProfessions();
             return Promise.resolve(this.allGnomes);
         }
-
     }
 
     getSelectedGnomes(inputgnome: GnomesModel): Promise<any> {
@@ -46,7 +45,6 @@ export class HomeService {
             return Promise.resolve(this.uniq)
         } else {
             let gnomesProfessions = [];
-
             this.allGnomes.Brastlewark.filter((gnome) => {
                 gnome.professions.filter((job) => {
                     gnomesProfessions.push(job);

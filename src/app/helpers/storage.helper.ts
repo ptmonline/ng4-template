@@ -1,6 +1,6 @@
 export class StorageApp {
 
-    static getStorage(isPersistent: boolean) {
+    static getStorage(isPersistent: boolean): Storage {
         if (isPersistent == true) return localStorage
         else return sessionStorage
     }

@@ -49,10 +49,6 @@ export class DashboardComponent {
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
     }
 
-    refreshPage(newSearch) {
-        this.items = newSearch;
-    }
-
     saveJob(job) {
 
         if (!this.jobSelected.length) {
@@ -63,11 +59,10 @@ export class DashboardComponent {
             else this.jobSelected.push(job);
         }
         console.log(this.jobSelected);
-        for (let u = 0; u <= this.items.length - 1; u++) {
+        for (let u = 0; u <= this.items.length; u++) {
             console.log(this.items[u].professions)
             for (let b = 0; b <= this.items[u].professions.length; b++) {
                 if (this.items[u].professions[b] == job) {
-                    // this.refreshPage(this.items[u].professions[b])
                     this.items = this.items[u].professions[b];
                 } else {
                     console.log('nope')

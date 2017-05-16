@@ -47,7 +47,6 @@ export class DashboardComponent {
         newgnomes.weight = this.weight || null;
         newgnomes.professions_length = this.professions_length || null;
         newgnomes.jobs = this.jobSelected || null;
-        console.log(newgnomes);
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
         this.bigFile = this.items;
     }

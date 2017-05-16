@@ -49,10 +49,6 @@ export class DashboardComponent {
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
     }
 
-    refreshPage(newSearch) {
-        this.items = newSearch;
-    }
-
     saveJob(job) {
 
         if (!this.jobSelected.length) {

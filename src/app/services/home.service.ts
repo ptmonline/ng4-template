@@ -18,13 +18,11 @@ export class HomeService {
         if (storedgnomes == null) {
             return this.http.get(this.theurl).toPromise().then(data => {
                 this.allGnomes = data.json();
-                console.log(typeof this.allGnomes)
                 StorageApp.set(HomeService.stored_gnomes, this.allGnomes, false);
                 this.getProfessions();
             });
         } else {
             this.allGnomes = StorageApp.get(HomeService.stored_gnomes);
-            console.log(typeof this.allGnomes)
             this.getProfessions();
             return Promise.resolve(this.allGnomes);
         }
@@ -32,8 +30,6 @@ export class HomeService {
     }
 
     getSelectedGnomes(inputgnome: GnomesModel): Promise<any> {
-        console.log(inputgnome)
-        console.log(typeof this.allGnomes)
         let gnomes = this.allGnomes.Brastlewark.filter(gnome => {
             return gnome.age >= inputgnome.age &&
                 gnome.hair_color == inputgnome.hair_color &&
@@ -45,7 +41,6 @@ export class HomeService {
 
     getProfessions() {
         let checkjobs = StorageApp.get('jobs');
-        console.log(checkjobs);
         if (checkjobs != null) {
             this.uniq = checkjobs;
             return Promise.resolve(this.uniq)

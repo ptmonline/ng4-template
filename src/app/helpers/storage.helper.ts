@@ -27,10 +27,8 @@ export class StorageApp {
         if (_storage != null) {
             let valor = _storage.getItem(key);
             try {
-                console.log('trying this')
                 return JSON.parse(valor);
             } catch (e) {
-                console.log('trying that')
                 return valor;
             }
         } else {

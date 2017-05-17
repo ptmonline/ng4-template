@@ -12,7 +12,7 @@ import { StorageApp } from '../helpers/storage.helper';
 
 export class DashboardComponent {
     public gnomebusy: GnomesModel;
-    public professions_length: number;
+    public professions_length: number; 
     public old: number;
     public weight: number;
     public height: number;

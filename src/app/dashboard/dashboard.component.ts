@@ -3,6 +3,8 @@ import { Validators, FormGroup, FormControl, FormBuilder, ReactiveFormsModule } 
 import { GnomesModel } from '../models/gnomes.model';
 import { HomeService } from '../services/home.service';
 import { StorageApp } from '../helpers/storage.helper';
+import * as _ from 'lodash';
+import lodash from 'lodash';
 
 @Component({
     selector: 'dashboard',
@@ -56,13 +58,14 @@ export class DashboardComponent {
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
             this.items = this.bigFile;
-            this.filterBaseOnJobs(this.jobSelected);
+             this.items = this.filterBaseOnJobs(this.jobSelected);
 
         } else {
             let index: number = this.jobSelected.indexOf(job);
             if (this.jobSelected[index] != null) this.jobSelected.splice(index, 1);
             else this.jobSelected.push(job);
-            this.filterBaseOnJobs(this.jobSelected);
+             this.items = this.filterBaseOnJobs(this.jobSelected);
+            // console.log(max)
         }
 
     }
@@ -71,15 +74,10 @@ export class DashboardComponent {
         console.log(job)
         console.log(this.items.length)
         for (let u = 0; u <= this.items.length - 1; u++) {
-            console.log(this.items[u].professions);
-            for (let b = 0; b <= this.professions_length - 1; b++) {
-                for (let p = 0; p <= job.length; p++) {
-                    if (this.items[u].professions[b] == job) {
-                        this.newArray.push(this.items[u])
-                        this.items = this.newArray;
-                    }
-                }
-            }
+            if(job.every(elem => this.items[u].professions.indexOf(elem) > -1)){
+                this.newArray.push(this.items[u]);
+                return this.newArray;
+            };
         }
     }
 }

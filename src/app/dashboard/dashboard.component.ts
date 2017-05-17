@@ -58,25 +58,28 @@ export class DashboardComponent {
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
             this.items = this.bigFile;
-             this.items = this.filterBaseOnJobs(this.jobSelected);
+             this.items = this.filterBaseOnJobs();
 
         } else {
             let index: number = this.jobSelected.indexOf(job);
             if (this.jobSelected[index] != null) this.jobSelected.splice(index, 1);
             else this.jobSelected.push(job);
-             this.items = this.filterBaseOnJobs(this.jobSelected);
+            this.items = this.bigFile;
+             this.items = this.filterBaseOnJobs();
             // console.log(max)
         }
 
     }
 
-    filterBaseOnJobs(job) {
-        console.log(job)
-        console.log(this.items.length)
+    filterBaseOnJobs() {
+        this.items = this.bigFile;
         for (let u = 0; u <= this.items.length - 1; u++) {
-            if(job.every(elem => this.items[u].professions.indexOf(elem) > -1)){
+            if(this.jobSelected.every(elem => this.items[u].professions.indexOf(elem) > -1)){
                 this.newArray.push(this.items[u]);
-                return this.newArray;
+                setTimeout(()=>{
+                    this.items =  this.newArray;
+                }, 2000)
+                
             };
         }
     }

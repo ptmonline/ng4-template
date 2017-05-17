@@ -53,6 +53,7 @@
                 <input  type="checkbox"  (change)="saveJob(job)" class="form-check__input" /> 
                 {{job}}
             </label>
+             <button type="button" (click)="filterBaseOnJobs()" class="btn btn--primary">Selected</button>
     </div>
 </div>
 <div class="container-flex" *ngIf="isValid; else empty_content">

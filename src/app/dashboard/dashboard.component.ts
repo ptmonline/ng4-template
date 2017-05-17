@@ -47,7 +47,7 @@ export class DashboardComponent {
         newgnomes.weight = this.weight || null;
         newgnomes.professions_length = this.professions_length || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
-        this.bigFile = this.items;
+        this.bigFile = this.items; 
         if(this.items.length) this.isValid = true;
         else this.isValid = false;
     }

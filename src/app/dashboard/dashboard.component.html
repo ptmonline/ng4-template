@@ -54,7 +54,7 @@
             </label>
     </div>
 </div>
-<div class="container-flex" *ngIf="items">
+<div class="container-flex" *ngIf="items; else empty_content">
     <div class="flex-panel" *ngFor="let item of items">
         <div><img [src]='item.thumbnail' class="flex-panel__picture" /></div>
         <div><span>NAME: {{item.name}}</span></div>
@@ -64,5 +64,7 @@
         <div><span>PROFESSIONS: </span></div>
         <div *ngFor="let prof of item.professions"><span>{{prof}}</span></div>
     </div>
-
+    <ng-template #empty_content class="container-flex">
+    No Gnomes Found !!! Sorry ....
+</ng-template>
 </div>

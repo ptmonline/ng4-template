@@ -12,7 +12,7 @@ import { StorageApp } from '../helpers/storage.helper';
 
 export class DashboardComponent {
     public gnomebusy: GnomesModel;
-    public professions_length: number; 
+    public professions_length: number;
     public old: number;
     public weight: number;
     public height: number;
@@ -48,22 +48,32 @@ export class DashboardComponent {
         newgnomes.professions_length = this.professions_length || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
         this.bigFile = this.items;
-        if(this.items.length) this.isValid = true;
+        if (this.items.length) this.isValid = true;
         else this.isValid = false;
     }
 
     saveJob(job) {
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
-            this.items = this.bigFile
+            this.items = this.bigFile;
+            this.filterBaseOnJobs(this.jobSelected);
+
         } else {
             let index: number = this.jobSelected.indexOf(job);
             if (this.jobSelected[index] != null) this.jobSelected.splice(index, 1);
             else this.jobSelected.push(job);
+            this.filterBaseOnJobs(this.jobSelected);
+        }
 
-            for (let u = 0; u <= this.items.length - 1; u++) {
-                console.log(this.items[u].professions)
-                for (let b = 0; b <= this.professions_length - 1; b++) {
+    }
+
+    filterBaseOnJobs(job) {
+        console.log(job)
+        console.log(this.items.length)
+        for (let u = 0; u <= this.items.length - 1; u++) {
+            console.log(this.items[u].professions);
+            for (let b = 0; b <= this.professions_length - 1; b++) {
+                for (let p = 0; p <= job.length; p++) {
                     if (this.items[u].professions[b] == job) {
                         this.newArray.push(this.items[u])
                         this.items = this.newArray;
@@ -71,6 +81,5 @@ export class DashboardComponent {
                 }
             }
         }
-
     }
 }

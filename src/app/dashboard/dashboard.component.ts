@@ -23,6 +23,7 @@ export class DashboardComponent {
     public jobSelected: GnomesModel[] = [];
     public newArray: any[] = [];
     public bigFile: GnomesModel;
+    public isValid: boolean;
 
     constructor(public fb: FormBuilder, private homeHttp: HomeService) {
         this.GnomesForm = this.fb.group({
@@ -46,7 +47,10 @@ export class DashboardComponent {
         newgnomes.weight = this.weight || null;
         newgnomes.professions_length = this.professions_length || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
+        console.log(this.items)
         this.bigFile = this.items;
+        if(this.items.length) this.isValid = true;
+        else this.isValid = false;
     }
 
     saveJob(job) {

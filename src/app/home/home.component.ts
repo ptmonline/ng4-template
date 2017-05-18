@@ -12,16 +12,4 @@ export class HomeComponent {
   title:string = "Gnomes's Village";
   items: any;
   constructor(private homeHttp: HomeService) { }
-
-  // ngOnInit(): void {
-  //   let newgnomes: GnomesModel = <GnomesModel>{};
-  //   newgnomes.hair_color = 'Pink',
-  //   newgnomes.age = 306;
-  //   newgnomes.weight = 12;
-  //   newgnomes.professions_length = 1;
-  //   this.homeHttp.getAllGnomes(newgnomes).then((response) => {
-  //     console.log(response)
-  //     this.items = response
-  //   })
-  // }
 }

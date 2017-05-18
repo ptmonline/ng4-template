@@ -65,8 +65,7 @@ export class DashboardComponent {
             if (this.jobSelected[index] != null) this.jobSelected.splice(index, 1);
             else this.jobSelected.push(job);
             this.items = this.bigFile;
-             this.items = this.filterBaseOnJobs();
-            // console.log(max)
+            this.items = this.filterBaseOnJobs();
         }
 
     }
@@ -79,7 +78,6 @@ export class DashboardComponent {
                 setTimeout(()=>{
                     this.items =  this.newArray;
                 }, 2000)
-                
             };
         }
     }

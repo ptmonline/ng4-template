@@ -61,8 +61,4 @@ export class HomeService {
     onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
     }
-
-    filterByJobs(){
-        
-    }
 }

@@ -51,22 +51,31 @@ export class DashboardComponent {
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
         this.bigFile = this.items;
         console.log(this.bigFile);
+        this.filterJob(this.bigFile);
         if (this.items.length) this.isValid = true;
         else this.isValid = false;
+    }
+
+    filterJob(gnomes){
+        this.homeHttp.getSelectedGnomesJob(gnomes);
+        this.gnomeprofessions = this.homeHttp.uniq;
+        console.log(this.gnomeprofessions)
     }
 
     saveJob(job) {
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
             this.items = this.bigFile;
+            this.filterJob(this.items);
             this.items = this.filterBaseOnJobs();
-
         } else {
             let index: number = this.jobSelected.indexOf(job);
             if (this.jobSelected[index] != null) {
                 this.jobSelected.splice(index, 1);
+                this.filterJob(this.items);
             } else {
                 this.jobSelected.push(job);
+                this.filterJob(this.items);
             }
             this.items = this.bigFile;
             this.items = this.filterBaseOnJobs();

@@ -64,6 +64,18 @@ export class HomeService {
         }
     }
 
+    getSelectedGnomesJob(selectedGnomes: any){
+        let gnomesProfessions = [];
+        console.log(selectedGnomes);
+        selectedGnomes.filter((gnome) => {
+            gnome.professions.filter((job) => {
+                gnomesProfessions.push(job);
+                this.uniq = gnomesProfessions.filter(this.onlyUnique)
+                return this.uniq
+            })
+        })
+    }
+
     onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
     }

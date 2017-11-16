@@ -50,7 +50,7 @@
     <legend for="">Choose profession?</legend>
     <div class="form-check">
         <label *ngFor="let job of gnomeprofessions" for="{{job}}" class="form-check__label">
-                <input  type="checkbox"  (change)="saveJob(job)" class="form-check__input" /> 
+                <input  type="checkbox"  (change)="saveJob(job)" class="form-check__input" id="{{job}}" /> 
                 {{job}}
             </label>
              <!-- <button type="button" (click)="filterBaseOnJobs()" class="btn btn--primary">Selected</button> -->

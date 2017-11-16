@@ -57,7 +57,6 @@ export class DashboardComponent {
     saveJob(job) {
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
-            console.log('1: ', this.jobSelected)
             this.items = this.bigFile;
             this.items = this.filterBaseOnJobs();
 
@@ -65,16 +64,11 @@ export class DashboardComponent {
             let index: number = this.jobSelected.indexOf(job);
             if (this.jobSelected[index] != null) {
                 this.jobSelected.splice(index, 1);
-                console.log('2: ', this.jobSelected)
-                this.items = this.bigFile;
-                this.items = this.filterBaseOnJobs();
             } else {
                 this.jobSelected.push(job);
-                console.log('3: ', this.jobSelected)
-                this.items = this.bigFile;
-                this.items = this.filterBaseOnJobs();
             }
-            
+            this.items = this.bigFile;
+            this.items = this.filterBaseOnJobs();
         }
 
     }

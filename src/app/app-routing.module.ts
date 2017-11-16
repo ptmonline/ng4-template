@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
       { path: 'home', component: HomeComponent }
     ])
   ],
-  exports: [ RouterModule ] // re-export the module declarations
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { };
 

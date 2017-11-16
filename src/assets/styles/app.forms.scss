@@ -32,11 +32,18 @@ $btn-primary: #0275d8;
 .form-check{
     position: relative; 
     display: block;
-    margin-bottom: .5rem;
-        padding: .5rem .75rem;
+    margin: 1rem 1rem 2rem;
     font-size: 1rem;
     line-height: 1.25;
     color: $basic-fontstyle;
+    height:0;
+    overflow:hidden;
+    transition: height linear .2s;
+
+    &.active{
+        transition: height linear .2s;
+        height:160px;
+    }
 
     &__label{
         display:inline-block;

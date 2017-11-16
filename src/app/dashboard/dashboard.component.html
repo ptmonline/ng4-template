@@ -47,7 +47,7 @@
     </div>
 </form>
 <div class="flex-panel">
-    <legend for="">Choose profession?</legend>
+    <div class="professionHeader" (click)="showProfessions($event)">Choose profession</div>
     <div class="form-check">
         <label *ngFor="let job of gnomeprofessions" for="{{job}}" class="form-check__label">
                 <input  type="checkbox"  (change)="saveJob(job)" class="form-check__input" id="{{job}}" /> 

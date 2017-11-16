@@ -75,12 +75,16 @@ export class DashboardComponent {
                 this.filterJob(this.items);
             } else {
                 this.jobSelected.push(job);
-                this.filterJob(this.items);
             }
             this.items = this.bigFile;
             this.items = this.filterBaseOnJobs();
         }
 
+    }
+
+    showProfessions(event){
+        event.target.classList.toggle('active');
+        event.target.nextElementSibling.classList.toggle('active');
     }
 
     filterBaseOnJobs() {
@@ -90,6 +94,7 @@ export class DashboardComponent {
                 this.newArray.push(this.items[u]);
                 setTimeout(() => {
                     this.items = this.newArray;
+                    this.filterJob(this.items);
                 }, 500)
             };
         }

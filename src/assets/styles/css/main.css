@@ -747,6 +747,15 @@ h2 {
   font-size: 1rem;
   text-align: center; }
 
+.professionHeader {
+  margin: 2rem 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: teal;
+  cursor: pointer; }
+  .professionHeader.active {
+    color: orangered; }
+
 .form-control {
   display: block;
   width: 100%;
@@ -768,11 +777,16 @@ h2 {
 .form-check {
   position: relative;
   display: block;
-  margin-bottom: .5rem;
-  padding: .5rem .75rem;
+  margin: 1rem 1rem 2rem;
   font-size: 1rem;
   line-height: 1.25;
-  color: #464a4c; }
+  color: #464a4c;
+  height: 0;
+  overflow: hidden;
+  transition: height linear .2s; }
+  .form-check.active {
+    transition: height linear .2s;
+    height: 160px; }
   .form-check__label {
     display: inline-block;
     padding: 0.5rem 1rem 0.5rem 1.5rem;

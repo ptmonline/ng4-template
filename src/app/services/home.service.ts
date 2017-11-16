@@ -8,6 +8,7 @@ import lodash from 'lodash';
 
 @Injectable()
 export class HomeService {
+
     public allGnomes: any;
     public gnomesProfessions: any;
     public uniq: any;
@@ -15,8 +16,10 @@ export class HomeService {
     private static stored_gnomes: string = 'stored_gnomes'
 
     constructor(private http: Http) { }
+
     getAllGnomes(): Promise<any> {
         let storedgnomes = StorageApp.get(HomeService.stored_gnomes);
+
         if (storedgnomes == null) {
             return this.http.get(this.theurl).toPromise().then(data => {
                 this.allGnomes = data.json();
@@ -27,7 +30,7 @@ export class HomeService {
             this.allGnomes = StorageApp.get(HomeService.stored_gnomes);
             this.getProfessions();
             return Promise.resolve(this.allGnomes);
-        }
+        };
     }
 
     getSelectedGnomes(inputgnome: GnomesModel): Promise<any> {

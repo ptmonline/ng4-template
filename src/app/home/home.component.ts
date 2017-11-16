@@ -11,5 +11,6 @@ import {GnomesModel} from '../models/gnomes.model';
 export class HomeComponent {
   title:string = "Gnomes's Village";
   items: any;
+  
   constructor(private homeHttp: HomeService) { }
 }

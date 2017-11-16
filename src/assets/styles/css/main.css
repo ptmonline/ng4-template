@@ -774,8 +774,16 @@ h2 {
   line-height: 1.25;
   color: #464a4c; }
   .form-check__label {
-    padding-left: 1.25rem;
-    margin-bottom: 0;
+    display: inline-block;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    font-family: Helvetica;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-style: italic;
     cursor: pointer; }
   .form-check__input {
     position: absolute;
@@ -805,7 +813,7 @@ h2 {
     border-color: #0275d8; }
 
 .container {
-  width: 970px;
+  width: 90%;
   display: block;
   padding: 0 1.5rem;
   margin: auto; }
@@ -822,7 +830,7 @@ h2 {
       display: block; } }
   .container-flex .flex-panel {
     display: block;
-    padding: 2%; }
+    padding: 1%; }
     .container-flex .flex-panel[center] {
       text-align: center; }
     .container-flex .flex-panel[left] {

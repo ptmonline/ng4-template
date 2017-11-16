@@ -1,5 +1,5 @@
 .container{
-    width: 970px;
+    width: 90%; 
     display:block;
     padding: 0 rem(15px);
     margin: auto;
@@ -18,7 +18,7 @@
 
     .flex-panel{
         display: block;
-        padding: 2%;
+        padding: 1%;
 
         &[center] {
       		text-align: center;

@@ -21,13 +21,16 @@ export class HomeService {
         let storedgnomes = StorageApp.get(HomeService.stored_gnomes);
 
         if (storedgnomes == null) {
+            console.log('storage empty');
             return this.http.get(this.theurl).toPromise().then(data => {
                 this.allGnomes = data.json();
                 StorageApp.set(HomeService.stored_gnomes, this.allGnomes, false);
                 this.getProfessions();
             });
         } else {
+            console.log('storage NOT empty');
             this.allGnomes = StorageApp.get(HomeService.stored_gnomes);
+            console.log(this.allGnomes)
             this.getProfessions();
             return Promise.resolve(this.allGnomes);
         };

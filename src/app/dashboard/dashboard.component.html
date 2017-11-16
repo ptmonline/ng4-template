@@ -53,7 +53,7 @@
                 <input  type="checkbox"  (change)="saveJob(job)" class="form-check__input" /> 
                 {{job}}
             </label>
-             <button type="button" (click)="filterBaseOnJobs()" class="btn btn--primary">Selected</button>
+             <!-- <button type="button" (click)="filterBaseOnJobs()" class="btn btn--primary">Selected</button> -->
     </div>
 </div>
 <div class="container-flex" *ngIf="isValid; else empty_content">
@@ -68,5 +68,5 @@
     </div>
 </div>
 <ng-template #empty_content class="container-flex">
-    <h2>No Gnomes Found !!! Sorry ....</h2>
+    <h2>Start Searching Gnomes</h2>
 </ng-template>

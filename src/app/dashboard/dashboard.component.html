@@ -1,70 +1,83 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="GnomesForm" class="container-flex">
     <div class="flex-panel">
         <select formControlName="professions_length" id="0" [(ngModel)]="professions_length" class="form-control">
-                <option value="" disabled [selected]='1'>How busy is your gnome ?</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="">All</option>
-            </select>
+            <option value="" disabled [selected]='1'>How busy is your gnome ?</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="">All</option>
+        </select>
     </div>
     <div class="flex-panel">
         <select formControlName="old" id="1" [(ngModel)]="old" class="form-control">
-                <option value="" disabled [selected]='1'>How old is your gnome? Older than: </option>
-                <option value="1" >Little</option>
-                <option value="10">Young</option>
-                <option value="30">Old</option>
-                <option value="50">Very Old</option>
-                <option value="100">Super Old</option>
-                <option value="">All</option>
-            </select>
+            <option value="" disabled [selected]='1'>How old is your gnome?</option>
+            <option value="1">Little</option>
+            <option value="10">Young</option>
+            <option value="30">Old</option>
+            <option value="50">Very Old</option>
+            <option value="100">Super Old</option>
+            <option value="">All</option>
+        </select>
     </div>
     <div class="flex-panel">
         <select formControlName="color_hair" id="2" [(ngModel)]="color_hair" class="form-control">
-                <option value="" disabled [selected]='1'>Color Hair?</option>
-                <option value="Red" >Red</option>
-                <option value="Pink">Pink</option>
-                <option value="Gray">Gray</option>
-                <option value="Green">Green</option>
-                <option value="Orange">Orange</option>
-                <option value="">All</option>
-            </select>
+            <option value="" disabled [selected]='1'>Color Hair?</option>
+            <option value="Red">Red</option>
+            <option value="Pink">Pink</option>
+            <option value="Gray">Gray</option>
+            <option value="Green">Green</option>
+            <option value="Orange">Orange</option>
+            <option value="">All</option>
+        </select>
     </div>
     <div class="flex-panel">
         <select formControlName="weight" id="3" [(ngModel)]="weight" class="form-control">
-                <option value="" disabled [selected]='1'>How large is your gnome?</option>
-                <option value="0">Heavy</option>
-                <option value="30">Very Heavy</option>
-                <option value="40">Super Heavy</option>
-                <option value="">All</option>
-            </select>
+            <option value="" disabled [selected]='1'>How large is your gnome?</option>
+            <option value="0">Heavy</option>
+            <option value="30">Very Heavy</option>
+            <option value="40">Super Heavy</option>
+            <option value="">All</option>
+        </select>
     </div>
     <div class="flex-panel">
         <button type="submit" class="btn btn--primary">Submit</button>
     </div>
-</form>
-<div class="flex-panel">
-    <div class="professionHeader" (click)="showProfessions($event)">Choose profession</div>
-    <div class="form-check">
-        <label *ngFor="let job of gnomeprofessions" for="{{job}}" class="form-check__label">
-                <input  type="checkbox"  (change)="saveJob(job)" class="form-check__input" id="{{job}}" /> 
-                {{job}}
+    <div class="flex-panel" *ngIf="isValid">
+        <button class="btn btn--primary" (click)="showProfessions($event)">Filter by profession</button>
+        <div class="form-check">
+            <label *ngFor="let job of gnomeprofessions" for="{{job}}" class="form-check__label">
+                <input type="checkbox" (change)="saveJob(job)" class="form-check__input" id="{{job}}" /> {{job}}
             </label>
-             <!-- <button type="button" (click)="filterBaseOnJobs()" class="btn btn--primary">Selected</button> -->
+        </div>
     </div>
-</div>
+</form>
+
 <div class="container-flex" *ngIf="isValid; else empty_content">
     <div class="flex-panel" *ngFor="let item of items">
-        <div><img [src]='item.thumbnail' class="flex-panel__picture" /></div>
-        <div><span>NAME: {{item.name}}</span></div>
-        <div><span>HAIR COLOR: {{item.hair_color}}</span></div>
-        <div><span>HEIGHT: {{item.height}}</span></div>
-        <div><span>WEIGHT: {{item.weight}}</span></div>
-        <div><span>PROFESSIONS: </span></div>
-        <div *ngFor="let prof of item.professions"><span>{{prof}}</span></div>
+        <div>
+            <img [src]='item.thumbnail' class="flex-panel__picture" />
+        </div>
+        <div>
+            <span>NAME: {{item.name}}</span>
+        </div>
+        <div>
+            <span>HAIR COLOR: {{item.hair_color}}</span>
+        </div>
+        <div>
+            <span>HEIGHT: {{item.height}}</span>
+        </div>
+        <div>
+            <span>WEIGHT: {{item.weight}}</span>
+        </div>
+        <div>
+            <span>PROFESSIONS: </span>
+        </div>
+        <div *ngFor="let prof of item.professions">
+            <span>{{prof}}</span>
+        </div>
     </div>
 </div>
 <ng-template #empty_content class="container-flex">

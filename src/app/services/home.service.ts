@@ -3,16 +3,12 @@ import { Headers, Http, Response } from '@angular/http';
 import { GnomesModel } from '../models/gnomes.model';
 import 'rxjs/add/operator/toPromise';
 import { StorageApp } from '../helpers/storage.helper';
-import * as _ from 'lodash';
-import lodash from 'lodash';
 import { GnomeProfessionHelper } from 'app/helpers/gnomeProfessions.helper';
 
 @Injectable()
 export class HomeService {
 
     public allGnomes: any;
-    public gnomesProfessions: any;
-    public uniq: any;
     private theurl: any = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
     private static stored_gnomes: string = 'stored_gnomes'
 

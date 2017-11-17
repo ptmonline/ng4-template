@@ -38,4 +38,9 @@ export class GnomeProfessionHelper {
     onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
     }
+
+    filterJob(gnomes) {
+        this.getSelectedGnomesJob(gnomes);
+        return this.uniq;
+    }
 }

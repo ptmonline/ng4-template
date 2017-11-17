@@ -3,8 +3,6 @@ import { Validators, FormGroup, FormControl, FormBuilder, ReactiveFormsModule } 
 import { GnomesModel } from '../models/gnomes.model';
 import { HomeService } from '../services/home.service';
 import { StorageApp } from '../helpers/storage.helper';
-import * as _ from 'lodash';
-import lodash from 'lodash';
 import { GnomeProfessionHelper } from 'app/helpers/gnomeProfessions.helper';
 
 @Component({
@@ -51,27 +49,22 @@ export class DashboardComponent {
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
         this.bigFile = this.items;
 
-        this.filterJob(this.bigFile);
+        this.gnomeprofessions = this._gnomeProfessionHelper.filterJob(this.bigFile);
         if (this.items.length) this.isValid = true;
         else this.isValid = false;
-    }
-
-    filterJob(gnomes) {
-        this._gnomeProfessionHelper.getSelectedGnomesJob(gnomes);
-        this.gnomeprofessions = this._gnomeProfessionHelper.uniq;
     }
 
     saveJob(job) {
         if (!this.jobSelected.length) {
             this.jobSelected.push(job);
             this.items = this.bigFile;
-            this.filterJob(this.items);
+            this.gnomeprofessions = this._gnomeProfessionHelper.filterJob(this.items);
             this.items = this.filterBaseOnJobs();
         } else {
             let index: number = this.jobSelected.indexOf(job);
             if (this.jobSelected[index] != null) {
                 this.jobSelected.splice(index, 1);
-                this.filterJob(this.items);
+                this.gnomeprofessions = this._gnomeProfessionHelper.filterJob(this.items);
             } else {
                 this.jobSelected.push(job);
             }
@@ -88,7 +81,7 @@ export class DashboardComponent {
                 this.newArray.push(this.items[u]);
                 setTimeout(() => {
                     this.items = this.newArray;
-                    this.filterJob(this.items);
+                    this.gnomeprofessions = this._gnomeProfessionHelper.filterJob(this.items);
                 }, 500)
             };
         }

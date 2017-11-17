@@ -50,16 +50,15 @@ export class DashboardComponent {
         newgnomes.professions_length = this.professions_length || null;
         this.items = this.homeHttp.getSelectedGnomes(newgnomes);
         this.bigFile = this.items;
-        console.log(this.bigFile);
+
         this.filterJob(this.bigFile);
         if (this.items.length) this.isValid = true;
         else this.isValid = false;
     }
 
-    filterJob(gnomes){
+    filterJob(gnomes) {
         this.homeHttp.getSelectedGnomesJob(gnomes);
         this.gnomeprofessions = this.homeHttp.uniq;
-        console.log(this.gnomeprofessions)
     }
 
     saveJob(job) {
@@ -82,11 +81,6 @@ export class DashboardComponent {
 
     }
 
-    showProfessions(event){
-        event.target.classList.toggle('active');
-        event.target.nextElementSibling.classList.toggle('active');
-    }
-
     filterBaseOnJobs() {
         this.newArray = [];
         for (let u = 0; u <= this.items.length - 1; u++) {
@@ -98,5 +92,10 @@ export class DashboardComponent {
                 }, 500)
             };
         }
+    }
+
+    showProfessions(event) {
+        event.target.classList.toggle('active');
+        event.target.nextElementSibling.classList.toggle('active');
     }
 }

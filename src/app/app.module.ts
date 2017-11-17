@@ -11,6 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 
 import { HomeService } from './services/home.service'; 
+import { GnomeProfessionHelper } from 'app/helpers/gnomeProfessions.helper';
+import { StorageApp } from 'app/helpers/storage.helper';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { HomeService } from './services/home.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [HomeService],
+  providers: [HomeService, GnomeProfessionHelper, StorageApp],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

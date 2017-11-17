@@ -5,11 +5,11 @@ import { HomeService } from '../services/home.service';
 import { StorageApp } from '../helpers/storage.helper';
 import * as _ from 'lodash';
 import lodash from 'lodash';
+import { GnomeProfessionHelper } from 'app/helpers/gnomeProfessions.helper';
 
 @Component({
     selector: 'dashboard',
-    templateUrl: './dashboard.component.html',
-    providers: [HomeService, StorageApp]
+    templateUrl: './dashboard.component.html'
 })
 
 export class DashboardComponent {
@@ -27,7 +27,7 @@ export class DashboardComponent {
     public bigFile: GnomesModel;
     public isValid: boolean;
 
-    constructor(public fb: FormBuilder, private homeHttp: HomeService) {
+    constructor(public fb: FormBuilder, private homeHttp: HomeService, private _gnomeProfessionHelper: GnomeProfessionHelper) {
         this.GnomesForm = this.fb.group({
             professions_length: '',
             old: '',
@@ -38,7 +38,7 @@ export class DashboardComponent {
 
     ngOnInit() {
         this.homeHttp.getAllGnomes().then(() => {
-            this.gnomeprofessions = this.homeHttp.uniq;
+            this.gnomeprofessions = this._gnomeProfessionHelper.uniq;
         })
     }
 
@@ -57,8 +57,8 @@ export class DashboardComponent {
     }
 
     filterJob(gnomes) {
-        this.homeHttp.getSelectedGnomesJob(gnomes);
-        this.gnomeprofessions = this.homeHttp.uniq;
+        this._gnomeProfessionHelper.getSelectedGnomesJob(gnomes);
+        this.gnomeprofessions = this._gnomeProfessionHelper.uniq;
     }
 
     saveJob(job) {

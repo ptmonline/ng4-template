@@ -56,7 +56,7 @@
 </form>
 
 <div class="container-flex" *ngIf="isValid; else empty_content">
-    <div class="flex-panel" *ngFor="let item of items">
+    <div class="flex-panel flex-panel__result" *ngFor="let item of items">
         <div>
             <img [src]='item.thumbnail' class="flex-panel__picture" />
         </div>
@@ -75,8 +75,8 @@
         <div>
             <span>PROFESSIONS: </span>
         </div>
-        <div *ngFor="let prof of item.professions">
-            <span>{{prof}}</span>
+        <div *ngFor="let prof of item.professions" class="work-content">
+            <span><i><b>{{prof}}</b></i></span>
         </div>
     </div>
 </div>
